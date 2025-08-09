@@ -5,6 +5,7 @@ function App() {
     <>
       <div className="w-full h-screen flex flex-col items-center justify-center bg-gray-100">
         <h1>Wangsit</h1>
+        <p>kontol</p>
       </div>
     </>
   );
