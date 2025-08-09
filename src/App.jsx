@@ -15,9 +15,9 @@ function App() {
       <Route
         path="/lapor"
         element={
-          <div className="min-h-screen bg-[#F4F7FA] pt-16 font-montserrat">
+          <div className="font-montserrat">
             <Navbar />
-            <div className="p-4">
+            <div>
               <Lapor />
             </div>
           </div>
@@ -27,9 +27,9 @@ function App() {
       <Route
         path="/lacak"
         element={
-          <div className="min-h-screen bg-[#F4F7FA] pt-16 font-montserrat">
+          <div className="font-montserrat">
             <Navbar />
-            <div className="p-4">
+            <div>
               <Lacak />
             </div>
           </div>
@@ -39,9 +39,9 @@ function App() {
       <Route
         path="/upvote"
         element={
-          <div className="min-h-screen bg-[#F4F7FA] pt-16 font-montserrat">
+          <div className="font-montserrat">
             <Navbar />
-            <div className="p-4">
+            <div>
               <Upvote />
             </div>
           </div>
