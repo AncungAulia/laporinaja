@@ -6,6 +6,7 @@ import Upvote from "../routes/Upvote.jsx";
 import Landing from "../routes/Landing.jsx";
 import Registration from "../routes/Registration.jsx";
 import Login from "../routes/Login.jsx";
+import Form from "../routes/Form.jsx";
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
       />
       <Route path="/registrasi" element={<Registration />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/formulir" element={<Form />} />
     </Routes>
   );
 }
