@@ -405,8 +405,8 @@ const LaporMelaluiWebsite = () => {
             <button
               onClick={() => handleAddReport(report.id)}
               className={`mt-4 font-medium py-2 px-4 rounded-lg flex items-center space-x-2 transition-colors ${report.status === 'added'
-                ? 'bg-green-600 hover:bg-green-700 text-white'
-                : 'bg-yellow-500 hover:bg-yellow-600 text-white'
+                  ? 'bg-green-600 hover:bg-green-700 text-white'
+                  : 'bg-yellow-500 hover:bg-yellow-600 text-white'
                 }`}
             >
               {report.status === 'added' ? (
@@ -451,8 +451,8 @@ const LaporMelaluiWebsite = () => {
         <div
           key={report.id}
           className={`bg-white border-l-4 rounded-lg p-6 shadow-sm ${report.status === 'added'
-            ? 'border-green-400 bg-green-50'
-            : 'border-yellow-400'
+              ? 'border-green-400 bg-green-50'
+              : 'border-yellow-400'
             }`}
         >
           <h3 className="font-semibold text-gray-900 text-lg mb-3">{report.title}</h3>
@@ -476,8 +476,8 @@ const LaporMelaluiWebsite = () => {
 
           <button
             className={`mt-4 font-medium py-2 px-4 rounded-lg flex items-center space-x-2 transition-colors ${report.status === 'added'
-              ? 'bg-green-600 hover:bg-green-700 text-white'
-              : 'bg-yellow-500 hover:bg-yellow-600 text-white'
+                ? 'bg-green-600 hover:bg-green-700 text-white'
+                : 'bg-yellow-500 hover:bg-yellow-600 text-white'
               }`}
           >
             {report.status === 'added' ? (
@@ -505,7 +505,7 @@ const LaporMelaluiWebsite = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-bl from-[#00294A] to-[#336F9F] pt-36 p-4">
+    <div className="min-h-screen bg-gradient-to-bl from-[#00294A] to-[#336F9F] pt-36 px-12">
       {/* Notification */}
       {notification && (
         <div className="fixed top-4 right-4 z-50 max-w-md w-full">
