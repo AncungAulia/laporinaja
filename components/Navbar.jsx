@@ -13,9 +13,9 @@ const Navbar = () => {
     <nav className="bg-white z-40 shadow-lg flex items-center justify-center py-3 px-10 fixed top-6 left-1/2 transform -translate-x-1/2 w-auto rounded-full min-w-[80%] max-h-16">
       <div className="flex items-center justify-between w-full max-w-6xl">
         <div className="">
-          <img src={Logo} alt="Logo" className="w-36 h-auto ml-[-80%]" />
+          <img src={Logo} alt="Logo" className="w-36 h-auto" />
         </div>
-        <div className="flex items-center gap-8 mr-[-10%]">
+        <div className="flex items-center gap-8 ">
           <Link
             to={"/lapor"}
             className={`relative text-base font-medium text-[#004B87]
