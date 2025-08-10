@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Users } from 'lucide-react';
 
+
+
 const LaporMelaluiWebsite = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -38,6 +40,7 @@ const LaporMelaluiWebsite = () => {
     kecamatan: false,
     instansi: false
   });
+  
 
   // Data instansi tujuan
   const instansiList = [
@@ -46,15 +49,15 @@ const LaporMelaluiWebsite = () => {
     { id: 'polda', name: 'Kepolisian Daerah (Polda)', category: 'Keamanan' },
     { id: 'polres', name: 'Kepolisian Resort (Polres)', category: 'Keamanan' },
     { id: 'polsek', name: 'Kepolisian Sektor (Polsek)', category: 'Keamanan' },
-    
+
     // Kejaksaan
     { id: 'kejagung', name: 'Kejaksaan Agung RI', category: 'Hukum' },
     { id: 'kejati', name: 'Kejaksaan Tinggi', category: 'Hukum' },
     { id: 'kejari', name: 'Kejaksaan Negeri', category: 'Hukum' },
-    
+
     // Lembaga Anti Korupsi
     { id: 'kpk', name: 'Komisi Pemberantasan Korupsi (KPK)', category: 'Anti Korupsi' },
-    
+
     // Kementerian
     { id: 'kemendagri', name: 'Kementerian Dalam Negeri', category: 'Pemerintahan' },
     { id: 'kemenkeu', name: 'Kementerian Keuangan', category: 'Keuangan' },
@@ -69,7 +72,7 @@ const LaporMelaluiWebsite = () => {
     { id: 'kemenko-perekonomian', name: 'Kementerian Koordinator Bidang Perekonomian', category: 'Koordinasi' },
     { id: 'kemenko-pmk', name: 'Kementerian Koordinator Pembangunan Manusia dan Kebudayaan', category: 'Koordinasi' },
     { id: 'kemenko-maritim', name: 'Kementerian Koordinator Bidang Kemaritiman dan Investasi', category: 'Koordinasi' },
-    
+
     // Lembaga Negara
     { id: 'ombudsman', name: 'Ombudsman Republik Indonesia', category: 'Pengawasan' },
     { id: 'komnas-ham', name: 'Komisi Nasional Hak Asasi Manusia', category: 'HAM' },
@@ -77,14 +80,14 @@ const LaporMelaluiWebsite = () => {
     { id: 'bawaslu', name: 'Badan Pengawas Pemilu', category: 'Pemilu' },
     { id: 'bpk', name: 'Badan Pemeriksa Keuangan', category: 'Audit' },
     { id: 'bpkp', name: 'Badan Pengawasan Keuangan dan Pembangunan', category: 'Audit' },
-    
+
     // Pemerintah Daerah
     { id: 'pemda-provinsi', name: 'Pemerintah Provinsi', category: 'Pemerintahan Daerah' },
     { id: 'pemkot', name: 'Pemerintah Kota', category: 'Pemerintahan Daerah' },
     { id: 'pemkab', name: 'Pemerintah Kabupaten', category: 'Pemerintahan Daerah' },
     { id: 'kecamatan', name: 'Kecamatan', category: 'Pemerintahan Daerah' },
     { id: 'kelurahan', name: 'Kelurahan/Desa', category: 'Pemerintahan Daerah' },
-    
+
     // BUMN/BUMD
     { id: 'bumn', name: 'Badan Usaha Milik Negara (BUMN)', category: 'BUMN' },
     { id: 'bumd', name: 'Badan Usaha Milik Daerah (BUMD)', category: 'BUMD' },
@@ -94,7 +97,7 @@ const LaporMelaluiWebsite = () => {
     { id: 'bni', name: 'Bank Negara Indonesia', category: 'BUMN' },
     { id: 'bri', name: 'Bank Rakyat Indonesia', category: 'BUMN' },
     { id: 'mandiri', name: 'Bank Mandiri', category: 'BUMN' },
-    
+
     // Lembaga Lainnya
     { id: 'ojk', name: 'Otoritas Jasa Keuangan', category: 'Keuangan' },
     { id: 'bi', name: 'Bank Indonesia', category: 'Keuangan' },
@@ -104,7 +107,7 @@ const LaporMelaluiWebsite = () => {
     { id: 'lapan', name: 'Lembaga Antariksa dan Penerbangan Nasional', category: 'Teknologi' },
     { id: 'lipi', name: 'Lembaga Ilmu Pengetahuan Indonesia', category: 'Penelitian' },
     { id: 'batan', name: 'Badan Tenaga Nuklir Nasional', category: 'Teknologi' },
-    
+
     // Layanan Publik
     { id: 'pdam', name: 'Perusahaan Daerah Air Minum', category: 'Layanan Publik' },
     { id: 'rumah-sakit', name: 'Rumah Sakit Pemerintah', category: 'Kesehatan' },
@@ -158,7 +161,7 @@ const LaporMelaluiWebsite = () => {
         }
         const data = await response.json();
         console.log('Provinsi response:', data);
-        
+
         // Handle different response structures
         const provinsiData = data.data || data;
         console.log('Provinsi data processed:', provinsiData);
@@ -225,7 +228,7 @@ const LaporMelaluiWebsite = () => {
           }
           const data = await response.json();
           console.log('Kabupaten response:', data);
-          
+
           // Handle different response structures
           const kabupatenData = data.data || data;
           console.log('Kabupaten data processed:', kabupatenData);
@@ -291,7 +294,7 @@ const LaporMelaluiWebsite = () => {
           }
           const data = await response.json();
           console.log('Kecamatan response:', data);
-          
+
           // Handle different response structures
           const kecamatanData = data.data || data;
           console.log('Kecamatan data processed:', kecamatanData);
@@ -423,10 +426,9 @@ const LaporMelaluiWebsite = () => {
 
   const StepIndicator = ({ step, isActive, isCompleted }) => (
     <div className="flex flex-col items-center">
-      <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
-        isCompleted ? 'bg-green-500 text-white' : 
-        isActive ? 'bg-orange-400 text-white' : 'bg-gray-200 text-gray-500'
-      }`}>
+      <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${isCompleted ? 'bg-green-500 text-white' :
+          isActive ? 'bg-orange-400 text-white' : 'bg-gray-200 text-gray-500'
+        }`}>
         {step}
       </div>
       <span className="text-xs mt-1 text-gray-600">
@@ -436,17 +438,17 @@ const LaporMelaluiWebsite = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 to-blue-700 p-6">
-      <div className="max-w-2xl mx-auto">
-        <div className="bg-white rounded-lg shadow-xl p-8">
-          <h1 className="text-2xl font-bold text-center text-gray-800 mb-8">
+    <div className="min-h-screen w-screen bg-gradient-to-bl from-[#00294A] to-[#336F9F] pt-12">
+      <div className="max-w-6xl mx-auto min-w-[80%]">
+        <div className="bg-white rounded-lg shadow-xl p-16 py-8">
+          <h1 className="text-4xl font-semibold text-center text-gray-800 mb-8">
             Lapor Melalui Website
           </h1>
 
           {/* Step Indicator */}
-          <div className="flex justify-center items-center mb-8">
+          <div className="flex justify-center items-center mb-8 gap-12">
             <StepIndicator step={1} isActive={currentStep === 1} isCompleted={currentStep > 1} />
-            <div className="w-16 h-0.5 bg-gray-300 mx-4"></div>
+            <div className="w-32 h-0.5 bg-gray-300"></div> {/* w-16 → w-32 */}
             <StepIndicator step={2} isActive={currentStep === 2} isCompleted={false} />
           </div>
 
@@ -455,7 +457,7 @@ const LaporMelaluiWebsite = () => {
               {/* Judul Laporan */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Judul Laporan*
+                  Judul Laporan<span className='text-red-500'>*</span>
                 </label>
                 <input
                   type="text"
@@ -463,14 +465,14 @@ const LaporMelaluiWebsite = () => {
                   value={formData.judulLaporan}
                   onChange={handleInputChange}
                   placeholder="Masukkan Judul Laporan Anda"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#00294A]  placeholder-gray-400 text-gray-900"
                 />
               </div>
 
               {/* Deskripsi Laporan */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Deskripsi Laporan*
+                  Deskripsi Laporan<span className='text-red-500'>*</span>
                 </label>
                 <textarea
                   name="deskripsiLaporan"
@@ -478,14 +480,14 @@ const LaporMelaluiWebsite = () => {
                   onChange={handleInputChange}
                   placeholder="Masukkan Judul Laporan Anda"
                   rows="4"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#00294A]  placeholder-gray-400 text-gray-900"
                 />
               </div>
 
               {/* Tanggal Kejadian */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Tanggal Kejadian Laporan*
+                  Tanggal Kejadian Laporan<span className='text-red-500'>*</span>
                 </label>
                 <div className="relative">
                   <input
@@ -494,7 +496,7 @@ const LaporMelaluiWebsite = () => {
                     value={formData.tanggalKejadian}
                     onChange={handleInputChange}
                     placeholder="Pilih Tanggal Kejadian"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#00294A]  placeholder-gray-400 text-gray-900 cursor-pointer"
                   />
                 </div>
               </div>
@@ -502,7 +504,7 @@ const LaporMelaluiWebsite = () => {
               {/* Lokasi Kejadian */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Lokasi Kejadian*
+                  Lokasi Kejadian<span className='text-red-500'>*</span>
                 </label>
                 <div className="grid grid-cols-3 gap-3">
                   {/* Provinsi Searchable Dropdown */}
@@ -513,7 +515,7 @@ const LaporMelaluiWebsite = () => {
                       value={searchTerms.provinsi}
                       onChange={(e) => handleSearchChange('provinsi', e.target.value)}
                       onFocus={() => toggleDropdown('provinsi')}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#00294A]  placeholder-gray-400 text-gray-900"
                       disabled={loading.provinsi}
                     />
                     {dropdownOpen.provinsi && (
@@ -540,20 +542,19 @@ const LaporMelaluiWebsite = () => {
                     <input
                       type="text"
                       placeholder={
-                        !formData.provinsi 
-                          ? 'Pilih provinsi dulu' 
-                          : loading.kabupaten 
-                            ? 'Loading...' 
+                        !formData.provinsi
+                          ? 'Pilih provinsi dulu'
+                          : loading.kabupaten
+                            ? 'Loading...'
                             : 'Cari Kabupaten/Kota...'
                       }
                       value={searchTerms.kabupaten}
                       onChange={(e) => handleSearchChange('kabupaten', e.target.value)}
                       onFocus={() => formData.provinsi && toggleDropdown('kabupaten')}
-                      className={`w-full px-3 py-2 border rounded-md focus:outline-none transition-all duration-200 ${
-                        !formData.provinsi 
-                          ? 'bg-gray-50 border-gray-200 text-gray-400 cursor-not-allowed shadow-inner' 
+                      className={`w-full px-3 py-2 border rounded-md focus:outline-none transition-all duration-200 ${!formData.provinsi
+                          ? 'bg-gray-50 border-gray-200 text-gray-400 cursor-not-allowed shadow-inner'
                           : 'border-gray-300 focus:ring-2 focus:ring-blue-500 bg-white'
-                      }`}
+                        }`}
                       disabled={!formData.provinsi || loading.kabupaten}
                     />
                     {dropdownOpen.kabupaten && formData.provinsi && (
@@ -580,20 +581,19 @@ const LaporMelaluiWebsite = () => {
                     <input
                       type="text"
                       placeholder={
-                        !formData.kabupaten 
-                          ? 'Pilih kabupaten dulu' 
-                          : loading.kecamatan 
-                            ? 'Loading...' 
+                        !formData.kabupaten
+                          ? 'Pilih kabupaten dulu'
+                          : loading.kecamatan
+                            ? 'Loading...'
                             : 'Cari Kecamatan...'
                       }
                       value={searchTerms.kecamatan}
                       onChange={(e) => handleSearchChange('kecamatan', e.target.value)}
                       onFocus={() => formData.kabupaten && toggleDropdown('kecamatan')}
-                      className={`w-full px-3 py-2 border rounded-md focus:outline-none transition-all duration-200 ${
-                        !formData.kabupaten 
-                          ? 'bg-gray-50 border-gray-200 text-gray-400 cursor-not-allowed shadow-inner' 
+                      className={`w-full px-3 py-2 border rounded-md focus:outline-none transition-all duration-200 ${!formData.kabupaten
+                          ? 'bg-gray-50 border-gray-200 text-gray-400 cursor-not-allowed shadow-inner'
                           : 'border-gray-300 focus:ring-2 focus:ring-blue-500 bg-white'
-                      }`}
+                        }`}
                       disabled={!formData.kabupaten || loading.kecamatan}
                     />
                     {dropdownOpen.kecamatan && formData.kabupaten && (
@@ -620,7 +620,7 @@ const LaporMelaluiWebsite = () => {
               {/* Instansi Tujuan */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Instansi Tujuan*
+                  Instansi Tujuan<span className='text-red-500'>*</span>
                 </label>
                 <div className="relative dropdown-container">
                   <input
@@ -629,7 +629,7 @@ const LaporMelaluiWebsite = () => {
                     value={searchTerms.instansi}
                     onChange={(e) => handleSearchChange('instansi', e.target.value)}
                     onFocus={() => toggleDropdown('instansi')}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#00294A]  placeholder-gray-400 text-gray-900"
                   />
                   {dropdownOpen.instansi && (
                     <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg max-h-60 overflow-y-auto">
@@ -678,7 +678,7 @@ const LaporMelaluiWebsite = () => {
                     name="tampilkanPublik"
                     checked={formData.tampilkanPublik}
                     onChange={handleInputChange}
-                    className="rounded border-gray-300 text-blue-600 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+                    className="rounded border-gray-300 text-blue-600 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity- cursor-pointer"
                   />
                   <span className="ml-2 text-sm text-gray-700">Jangan tampilkan untuk publik</span>
                 </label>
@@ -688,7 +688,7 @@ const LaporMelaluiWebsite = () => {
                     name="anonimNama"
                     checked={formData.anonimNama}
                     onChange={handleInputChange}
-                    className="rounded border-gray-300 text-blue-600 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
+                    className="rounded border-gray-300 text-blue-600 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity- cursor-pointer"
                   />
                   <span className="ml-2 text-sm text-gray-700">Jangan tampilkan nama dan foto profil saya (anonim)</span>
                 </label>
@@ -697,7 +697,7 @@ const LaporMelaluiWebsite = () => {
               {/* Next Button */}
               <button
                 onClick={handleNext}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-md transition duration-200"
+                className="w-full bg-[#004B87] text-white font-medium py-3 px-4 rounded-md transition duration-200 cursor-pointer"
               >
                 Selanjutnya
               </button>
@@ -707,7 +707,7 @@ const LaporMelaluiWebsite = () => {
           {currentStep === 2 && (
             <div className="space-y-6">
               <h2 className="text-xl font-semibold text-gray-800 mb-6">Rekomendasi Laporan</h2>
-              
+
               {/* Report Cards */}
               {[1, 2, 3].map((index) => (
                 <div key={index} className="border border-orange-200 rounded-lg p-6 bg-orange-50">
@@ -716,7 +716,7 @@ const LaporMelaluiWebsite = () => {
                       Lorem Ipsum Dolor Sit Amet Wangsit Age
                     </h3>
                   </div>
-                  
+
                   <div className="space-y-2 mb-4">
                     <div className="flex items-center text-sm text-gray-600">
                       <Users className="w-4 h-4 mr-2" />
@@ -741,7 +741,7 @@ const LaporMelaluiWebsite = () => {
               ))}
 
               {/* Navigation Buttons */}
-              <div className="flex justify-between pt-6">
+              <div className="flex justify-between pt-6 py-0">
                 <button
                   onClick={handleBack}
                   className="bg-gray-500 hover:bg-gray-600 text-white font-medium py-3 px-6 rounded-md transition duration-200"

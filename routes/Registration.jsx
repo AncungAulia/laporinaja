@@ -54,11 +54,11 @@ export default function Registration() {
           style={{ clipPath: "polygon(100% 0%, 100% 100%, 0% 0%)" }}
         ></div>
 
-        <div className="relative z-10 text-center flex flex-col items-center mb-10">
+        <div className="relative z-10 text-center flex flex-col items-center mb-40">
           <img
             src={Logo2}
             alt="Logo"
-            className="w-2/3 h-auto aspect-square mb-[-70px]"
+            className="w-2/3 h-auto aspect-square mb-[-90px]"
           />
           <h1 className="text-[36px] font-bold mb-8 tracking-[0.02em]">
             Sudah Punya
