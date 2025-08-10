@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Globe,
   ChevronDown,
   ChevronRight,
   AlertCircle,
   BookOpenText,
+  ArrowRight,
 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
@@ -16,14 +18,20 @@ const LaporMain = () => {
 
   return (
     <div className="min-h-screen w-screen bg-gradient-to-bl from-[#00294A] to-[#336F9F] pt-36 ">
-      <h1 className="text-white text-4xl font-medium text-center mb-6">
+      <h1
+        className="text-white text-4xl font-medium text-center mb-6 animate-fade-in opacity-0"
+        style={{ animationDelay: "0.2s" }}
+      >
         Pilih Cara Anda Melapor
       </h1>
 
       <div className="flex flex-col items-center">
         <div className="min-w-[80%] w-full max-w-4xl">
           {/* Lapor melalui Website */}
-          <div className="mb-6">
+          <div
+            className="mb-6 animate-fade-in opacity-0"
+            style={{ animationDelay: "0.5s" }}
+          >
             <button
               onClick={() => {
                 if (showWebsiteDetails) {
@@ -71,7 +79,7 @@ const LaporMain = () => {
                 }`}
               >
                 {/* Ketentuan Umum */}
-                <div>
+                <div className="animate-slide-up">
                   <h3 className="text-lg font-semibold mb-3 underline flex items-center gap-2">
                     <div className="bg-orange-400 p-1 rounded-full">
                       <AlertCircle className="w-6 h-6 text-white" />
@@ -108,7 +116,10 @@ const LaporMain = () => {
                 </div>
 
                 {/* Panduan Singkat */}
-                <div>
+                <div
+                  className="animate-slide-up"
+                  style={{ animationDelay: "0.2s" }}
+                >
                   <h3 className="text-lg font-semibold mb-4 underline flex items-center gap-2">
                     <div className="bg-green-500 p-1.5 rounded-full">
                       <BookOpenText className="w-6 h-6 text-white" />
@@ -189,7 +200,10 @@ const LaporMain = () => {
                 </div>
 
                 {/* Agreement Checkbox */}
-                <div className="flex items-start gap-3">
+                <div
+                  className="flex items-start gap-3 animate-slide-up"
+                  style={{ animationDelay: "0.4s" }}
+                >
                   <input
                     type="checkbox"
                     id="agreement-website"
@@ -203,25 +217,33 @@ const LaporMain = () => {
                 </div>
 
                 {/* Submit Button */}
-                <div className="text-center">
-                  <button
-                    disabled={!isAgreedWebsite}
-                    className={`px-8 py-3 rounded-full font-medium flex items-center gap-2 mx-auto transition-colors cursor-pointer ${
-                      isAgreedWebsite
-                        ? "bg-[#004b87] text-white hover:opacity-80"
-                        : "bg-gray-300 text-gray-500 cursor-not-allowed"
-                    }`}
-                  >
-                    MULAI MELAPOR
-                    <ChevronRight size={16} />
-                  </button>
+                <div
+                  className="text-center animate-slide-up"
+                  style={{ animationDelay: "0.6s" }}
+                >
+                  <Link to="/formulir">
+                    <button
+                      disabled={!isAgreedWebsite}
+                      className={`px-8 py-3 rounded-full font-medium flex items-center gap-2 mx-auto transition-colors ${
+                        isAgreedWebsite
+                          ? "bg-[#004b87] text-white hover:opacity-80"
+                          : "bg-gray-300 text-gray-500 cursor-not-allowed"
+                      }`}
+                    >
+                      MULAI MELAPOR
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Lapor melalui WhatsApp */}
-          <div className="mb-6">
+          <div
+            className="mb-6 animate-fade-in opacity-0"
+            style={{ animationDelay: "0.7s" }}
+          >
             <button
               onClick={() => {
                 if (showWhatsappDetails) {
@@ -269,7 +291,7 @@ const LaporMain = () => {
                 }`}
               >
                 {/* Ketentuan Umum */}
-                <div>
+                <div className="animate-slide-up">
                   <h3 className="text-lg font-semibold mb-3 underline flex items-center gap-2">
                     <div className="bg-orange-400 p-1 rounded-full">
                       <AlertCircle className="w-6 h-6 text-white" />
@@ -306,7 +328,10 @@ const LaporMain = () => {
                 </div>
 
                 {/* Panduan Singkat */}
-                <div>
+                <div
+                  className="animate-slide-up"
+                  style={{ animationDelay: "0.2s" }}
+                >
                   <h3 className="text-lg font-semibold mb-4 underline flex items-center gap-2">
                     <div className="bg-green-500 p-1.5 rounded-full">
                       <BookOpenText className="w-6 h-6 text-white" />
@@ -384,7 +409,10 @@ const LaporMain = () => {
                 </div>
 
                 {/* Agreement Checkbox */}
-                <div className="flex items-start gap-3">
+                <div
+                  className="flex items-start gap-3 animate-slide-up"
+                  style={{ animationDelay: "0.4s" }}
+                >
                   <input
                     type="checkbox"
                     id="agreement-whatsapp"
@@ -398,7 +426,10 @@ const LaporMain = () => {
                 </div>
 
                 {/* Submit Button */}
-                <div className="text-center">
+                <div
+                  className="text-center animate-slide-up"
+                  style={{ animationDelay: "0.6s" }}
+                >
                   <button
                     disabled={!isAgreedWhatsapp}
                     className={`px-8 py-3 rounded-full font-semibold flex items-center gap-2 mx-auto transition-colors cursor-pointer ${
@@ -416,6 +447,57 @@ const LaporMain = () => {
           </div>
         </div>
       </div>
+      <style jsx>{`
+        @keyframes fadeInFromTop {
+          0% {
+            opacity: 0;
+            transform: translateY(-30px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes slideUp {
+          0% {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes bounceSubtle {
+          0%,
+          20%,
+          50%,
+          80%,
+          100% {
+            transform: translateY(0);
+          }
+          40% {
+            transform: translateY(-3px);
+          }
+          60% {
+            transform: translateY(-2px);
+          }
+        }
+
+        .animate-fade-in {
+          animation: fadeInFromTop 0.8s ease-out forwards;
+        }
+
+        .animate-slide-up {
+          animation: slideUp 0.6s ease-out forwards;
+        }
+
+        .animate-bounce-subtle {
+          animation: bounceSubtle 2s ease-in-out infinite;
+        }
+      `}</style>
     </div>
   );
 };

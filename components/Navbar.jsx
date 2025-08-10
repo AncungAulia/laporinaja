@@ -1,16 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { LogOut } from "lucide-react";
 import Logo from "../src/assets/logo.png";
 
 const Navbar = () => {
   const location = useLocation();
+  const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [prevScrollPos]);
 
   // Function to check if link is active
   const isActive = (path) => location.pathname === path;
 
   return (
-    <nav className="bg-white z-40 shadow-lg flex items-center justify-center py-3 px-10 fixed top-6 left-1/2 transform -translate-x-1/2 w-auto rounded-full min-w-[80%] max-h-16">
+    <nav
+      className={`bg-white z-40 shadow-lg flex items-center justify-center py-3 px-10 fixed left-1/2 transform -translate-x-1/2 w-auto rounded-full min-w-[80%] max-h-16 transition-all duration-300 ${
+        visible ? "top-6 opacity-100" : "-top-20 opacity-0"
+      }`}
+    >
       <div className="flex items-center justify-between w-full max-w-6xl">
         <div className="">
           <img src={Logo} alt="Logo" className="w-36 h-auto" />
