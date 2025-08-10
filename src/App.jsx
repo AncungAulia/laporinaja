@@ -4,6 +4,8 @@ import Lapor from "../routes/Lapor";
 import Lacak from "../routes/Lacak";
 import Upvote from "../routes/Upvote.jsx";
 import Landing from "../routes/Landing.jsx";
+import Registration from "../routes/Registration.jsx";
+import Login from "../routes/Login.jsx";
 
 function App() {
   return (
@@ -47,6 +49,8 @@ function App() {
           </div>
         }
       />
+      <Route path="/registrasi" element={<Registration />} />
+      <Route path="/login" element={<Login />} />
     </Routes>
   );
 }
